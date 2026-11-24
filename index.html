@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Торты на заказ в Подольске и Москве // Pavlova.cake</title>
+<meta name="description" content="Авторские торты, бенто-торты, капкейки и трайфлы. Только свежие продукты, без заморозки. Доставка по Подольску и Москве." />
+<meta name="keywords" content="торты на заказ Подольск, торты на заказ Москва, бенто торт, капкейки, кондитерская Pavlova" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Микроразметка для поисковиков -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "Pavlova.cake",
+  "description": "Авторские торты и десерты на заказ. Доставка по Москве и Подольску.",
+  "telephone": "+7-978-210-48-95",
+  "email": "adad152@list.ru",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Подольск",
+    "addressRegion": "Московская область",
+    "addressCountry": "RU"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Москва" },
+    { "@type": "City", "name": "Подольск" }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --bg: #F9F8F6; --surface: #FFFFFF; --text: #1A1513; --muted: #7A736E;
+    --gold: #C5A880; --gold-hover: #B0936A; --border: #EBE5DF; --radius: 4px;
+    --transition: all 0.3s ease;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; object-fit: cover; }
+  h1, h2, h3, .logo { font-family: 'Cormorant Garamond', serif; font-weight: 500; letter-spacing: 0.5px; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  
+  /* Шапка */
+  header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(249, 248, 246, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); transition: var(--transition); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+  .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 1px; text-transform: lowercase; }
+  .logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); transition: var(--transition); position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: var(--transition); }
+  .nav-links a:hover { color: var(--text); } .nav-links a:hover::after { width: 100%; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; border: 1px solid transparent; transition: var(--transition); }
+  .btn-gold { background: var(--gold); color: #fff; } .btn-gold:hover { background: var(--gold-hover); }
+  .burger { display: none; background: none; border: none; cursor: pointer; }
+  .burger span { display: block; width: 28px; height: 1px; background: var(--text); margin: 6px 0; transition: 0.3s; }
+
+  /* Главный экран */
+  .hero { height: 100vh; min-height: 600px; display: flex; align-items: center; position: relative; padding-top: 80px; background: linear-gradient(rgba(26, 21, 19, 0.4), rgba(26, 21, 19, 0.7)), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat; }
+  .hero-content { max-width: 600px; color: #fff; }
+  .hero-subtitle { display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; color: var(--gold); }
+  .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 24px; }
+  .hero p { font-size: 1.1rem; font-weight: 300; margin-bottom: 40px; color: #E5E5E5; max-width: 480px; }
+
+  /* Секции */
+  .section-padding { padding: 100px 0; }
+  .section-head { text-align: center; margin-bottom: 60px; }
+  .section-head span { display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 3px; color: var(--gold); margin-bottom: 12px; }
+  .section-head h2 { font-size: 3rem; }
+
+  /* Обо мне */
+  .about-me { background: var(--surface); }
+  .about-me-content { max-width: 800px; margin: 0 auto; text-align: center; }
+  .about-me-content p { font-size: 1.1rem; color: var(--muted); margin-bottom: 20px; }
+  .about-me-content p strong { color: var(--text); }
+
+  /* Прайс-лист */
+  .pricing { background: var(--bg); }
+  .price-list { max-width: 900px; margin: 0 auto; }
+  .price-item { display: flex; justify-content: space-between; align-items: flex-end; padding: 24px 0; border-bottom: 1px dotted var(--border); }
+  .price-info h3 { font-size: 1.5rem; margin-bottom: 4px; }
+  .price-info p { color: var(--muted); font-size: 0.9rem; }
+  .price-value { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--gold); white-space: nowrap; margin-left: 20px; }
+  .price-note { text-align: center; margin-top: 40px; color: var(--muted); font-size: 0.95rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+  /* Вкусы */
+  .flavors { background: var(--text); color: #fff; padding: 80px 0; }
+  .flavors .section-head h2 { color: #fff; }
+  .flavors-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; max-width: 900px; margin: 0 auto; }
+  .flavor-tag { padding: 12px 24px; border: 1px solid #444; border-radius: 50px; font-size: 0.95rem; color: #E5E5E5; transition: var(--transition); text-align: center; }
+  .flavor-tag:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* Процесс создания */
+  .process { background: var(--surface); }
+  .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; max-width: 1000px; margin: 0 auto; }
+  .process-step { text-align: center; }
+  .step-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--gold); line-height: 1; margin-bottom: 16px; }
+  .process-step h3 { font-size: 1.3rem; margin-bottom: 12px; }
+  .process-step p { color: var(--muted); font-size: 0.95rem; }
+
+  /* Отзывы */
+  .testimonials { background: var(--bg); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+  .review-card { background: var(--surface); padding: 40px; border: 1px solid var(--border); position: relative; }
+  .review-card::before { content: '“'; position: absolute; top: 10px; left: 20px; font-family: 'Cormorant Garamond', serif; font-size: 5rem; color: rgba(197, 168, 128, 0.2); line-height: 1; }
+  .review-text { font-style: italic; color: var(--muted); margin-bottom: 24px; position: relative; z-index: 1; }
+  .review-author { font-weight: 600; font-size: 1rem; } .review-date { font-size: 0.8rem; color: var(--gold); margin-top: 4px; display: block; }
+
+  /* FAQ */
+  .faq { background: var(--surface); padding: 100px 0; }
+  .faq-list { max-width: 800px; margin: 0 auto; }
+  details { border-bottom: 1px solid var(--border); padding: 24px 0; }
+  summary { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; color: var(--text); }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '+'; font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: 1.8rem; color: var(--gold); transition: transform 0.3s; line-height: 1; }
+  details[open] summary::after { content: '−'; transform: rotate(180deg); }
+  details p { margin-top: 16px; color: var(--muted); font-size: 1rem; padding-right: 40px; }
+
+  /* Форма и контакты */
+  .contact { background: var(--bg); padding: 100px 0; }
+  .contact-wrap { max-width: 1000px; margin: 0 auto; background: var(--surface); padding: 60px; border: 1px solid var(--border); box-shadow: 0 10px 40px rgba(0,0,0,0.03); display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; }
+  
+  .contact-info-box h2 { font-size: 3rem; margin-bottom: 16px; }
+  .contact-info-box p { color: var(--muted); margin-bottom: 30px; }
+  .contact-list { list-style: none; }
+  .contact-list li { margin-bottom: 20px; font-size: 1.05rem; display: flex; align-items: center; gap: 12px; font-weight: 500; }
+  .contact-list .icon { font-size: 1.3rem; }
+  .contact-list a { transition: var(--transition); }
+  .contact-list a:hover { color: var(--gold); }
+
+  .contact-form h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 24px; }
+  .form-grid { display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
+  .field label { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: var(--text); font-weight: 600; }
+  .field input, .field textarea, .field select { width: 100%; padding: 16px; background: var(--bg); border: 1px solid var(--border); color: var(--text); font-family: inherit; font-size: 1rem; transition: var(--transition); }
+  .field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--gold); }
+  .field textarea { height: 100px; resize: vertical; }
+  .contact-form .btn { width: 100%; }
+  .form-status { display: none; margin-top: 24px; padding: 16px; background: rgba(197, 168, 128, 0.1); border: 1px solid var(--gold); color: var(--gold); font-size: 0.9rem; text-align: center; }
+  .form-status.success { display: block; }
+
+  /* Подвал */
+  footer { background: #110E0C; color: #7A736E; padding: 40px 0; text-align: center; font-size: 0.9rem; }
+  footer a { color: var(--gold); transition: var(--transition); } footer a:hover { color: #fff; }
+
+  @media (max-width: 900px) { 
+    .hero { text-align: center; justify-content: center; }
+    .contact-wrap { grid-template-columns: 1fr; gap: 40px; padding: 40px 20px; }
+    .contact-info-box { text-align: center; }
+    .contact-list li { justify-content: center; }
+  }
+  @media (max-width: 768px) {
+    .nav-links, .nav > .btn { display: none; } .burger { display: block; }
+    .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 80px; left: 0; right: 0; background: var(--bg); padding: 24px; gap: 20px; border-bottom: 1px solid var(--border); text-align: center; }
+    .section-head h2, .contact-info-box h2 { font-size: 2.2rem; } .hero h1 { font-size: 2.8rem; }
+    .price-item { flex-direction: column; align-items: flex-start; gap: 8px; } .price-value { margin-left: 0; }
+    .process-grid { grid-template-columns: 1fr; gap: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#" class="logo">pavlova<span>.cake</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">Обо мне</a></li>
+      <li><a href="#pricing">Прайс</a></li>
+      <li><a href="#process">Процесс</a></li>
+      <li><a href="#faq">Вопросы</a></li>
+      <li><a href="#contact">Контакты</a></li>
+    </ul>
+    <a href="https://t.me/world9912" target="_blank" class="btn btn-gold">Telegram</a>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-content">
+    <span class="hero-subtitle">Кондитерская Pavlova в Подольске</span>
+    <h1>Торты, которые создают праздник</h1>
+    <p>Печем торты, бенто-торты и десерты на заказ. Только свежие продукты, без заморозки. Доставка по Подольску и Москве.</p>
+    <a href="#pricing" class="btn btn-gold">Узнать цены</a>
+  </div>
+</section>
+
+<!-- Блок Обо мне -->
+<section class="about-me section-padding" id="about">
+  <div class="container">
+    <div class="section-head">
+      <span>О нас</span>
+      <h2>Добро пожаловать в Pavlova.cake</h2>
+    </div>
+    <div class="about-me-content">
+      <p>Для нас кондитерское дело — это не просто работа, а настоящее творчество и любовь к деталям. Мы создаем десерты, которые становятся центром любого праздника.</p>
+      <p><strong>Мы готовим только под заказ и никогда не замораживаем</strong> свои изделия. Используем исключительно свежие и качественные продукты, а декор всегда делаем аккуратно, с душой и вниманием к вашим пожеланиям.</p>
+      <p>С нами легко договориться: мы всегда на связи, поможем с выбором и учтем любые ваши идеи по вкусу и оформлению.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Прайс -->
+<section class="pricing section-padding" id="pricing">
+  <div class="container">
+    <div class="section-head"><span>Стоимость</span><h2>Прайс-лист</h2></div>
+    <div class="price-list">
+      <div class="price-item">
+        <div class="price-info"><h3>Торт на заказ</h3><p>Заказ от 2 кг</p></div>
+        <div class="price-value">2 700 ₽ / кг</div>
+      </div>
+      <div class="price-item">
+        <div class="price-info"><h3>Бенто-макси (14-15 см)</h3><p>Мини-торт на двоих</p></div>
+        <div class="price-value">2 900 ₽</div>
+      </div>
+      <div class="price-item">
+        <div class="price-info"><h3>Капкейки</h3><p>Минимум 6 штук</p></div>
+        <div class="price-value">450 ₽ / шт</div>
+      </div>
+      <div class="price-item">
+        <div class="price-info"><h3>Картошка-эскимо</h3><p>Коробка (5 штук)</p></div>
+        <div class="price-value">3 000 ₽</div>
+      </div>
+      <div class="price-item">
+        <div class="price-info"><h3>Трайфлы</h3><p>Торт в стакане, минимум 6 шт</p></div>
+        <div class="price-value">450 ₽ / шт</div>
+      </div>
+    </div>
+    <p class="price-note">Сложный декор (фигурки из мастики и шоколада, свежие ягоды, живые цветы) рассчитывается индивидуально по чеку.</p>
+  </div>
+</section>
+
+<!-- Вкусы -->
+<section class="flavors">
+  <div class="container">
+    <div class="section-head"><span>Начинки</span><h2>Популярные вкусы</h2></div>
+    <div class="flavors-grid">
+      <div class="flavor-tag">Киндер кантри</div>
+      <div class="flavor-tag">Красный бархат</div>
+      <div class="flavor-tag">Малиновый бархат</div>
+      <div class="flavor-tag">Сникерс</div>
+      <div class="flavor-tag">Тропик</div>
+      <div class="flavor-tag">Вишня в шоколаде</div>
+      <div class="flavor-tag">Морковный с карамелью</div>
+      <div class="flavor-tag">Бисквитные с ягодой на выбор (крем чиз, бисквит, ягоды на выбор)</div>
+    </div>
+  </div>
+</section>
+
+<!-- Процесс создания -->
+<section class="process section-padding" id="process">
+  <div class="container">
+    <div class="section-head"><span>Как мы работаем</span><h2>Процесс создания</h2></div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <h3>Заявка и бриф</h3>
+        <p>Вы оставляете заявку. Мы обсуждаем повод, количество гостей, ваши вкусовые предпочтения и бюджет.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <h3>Дизайн и детали</h3>
+        <p>Согласовываем внешний вид, декор и начинку. Подбираем идеальное сочетание под ваш праздник.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <h3>Приготовление</h3>
+        <p>Выпекаем коржи, готовим кремы и собираем торт вручную за 24 часа до вашего торжества.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <h3>Доставка</h3>
+        <p>Бережно доставляем торт в термоупаковке точно к назначенному времени по Москве или Подольску.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Отзывы -->
+<section class="testimonials section-padding" id="reviews">
+  <div class="container">
+    <div class="section-head"><span>Мнения</span><h2>Отзывы клиентов</h2></div>
+    <div class="testimonials-grid">
+      <div class="review-card">
+        <p class="review-text">Приветики! Замечательный тортик! Всем очень понравился. Пожалуйста, запомни этот рецепт!</p>
+        <div class="review-author">Клиент</div><span class="review-date">Март 2024</span>
+      </div>
+      <div class="review-card">
+        <p class="review-text">Добрый день! Спасибо огромное за торт! Это просто бомба! очень красивый, эффектный, вкусный. Именинница очень обрадовалась! Торт супер вкусный и красивый.</p>
+        <div class="review-author">Клиент</div><span class="review-date">Март 2024</span>
+      </div>
+      <div class="review-card">
+        <p class="review-text">Здравствуйте, не заходила в авито, да, тортик просто шикарный был, всем очень понравилось, спасибо вам большое, буду еще обращаться на праздники)</p>
+        <div class="review-author">Клиент</div><span class="review-date">Ноябрь 2024</span>
+      </div>
+      <div class="review-card">
+        <p class="review-text">Тортик оооочень вкусный. Мамочкам кто был, раздала ваш номер. Все попросили. Спасибо огромное ❤️</p>
+        <div class="review-author">Клиент</div><span class="review-date">Февраль 2024</span>
+      </div>
+      <div class="review-card">
+        <p class="review-text">Добрый вечер, спасибо ОГРОМНОЕ за торт, очень вкусный ❤️</p>
+        <div class="review-author">Клиент</div><span class="review-date">Октябрь 2024</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Частые вопросы -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head"><span>FAQ</span><h2>Частые вопросы</h2></div>
+    <div class="faq-list">
+      <details>
+        <summary>За сколько дней нужно заказывать торт?</summary>
+        <p>Обычно минимальный срок — 3-5 дней. Для свадебных или сложных тортов с индивидуальным декором лучше бронировать дату за 2-3 недели.</p>
+      </details>
+      <details>
+        <summary>Как осуществляется доставка?</summary>
+        <p>Мы доставляем торты в Подольск и Москву в специальной термоупаковке, чтобы сохранить идеальный вид и свежесть. Стоимость доставки рассчитывается индивидуально в зависимости от района.</p>
+      </details>
+      <details>
+        <summary>Можно ли изменить дизайн или вкус?</summary>
+        <p>Конечно! Мы делаем торты полностью под заказ. Вы можете выбрать любой декор, цветовую гамму и начинку из нашего списка или предложить свою идею.</p>
+      </details>
+      <details>
+        <summary>Есть ли варианты без сахара или глютена?</summary>
+        <p>Да, мы можем адаптировать многие рецепты под ваши предпочтения или аллергии. Обсуждается индивидуально при оформлении заказа.</p>
+      </details>
+      <details>
+        <summary>Сколько хранится торт?</summary>
+        <p>Поскольку мы используем только натуральные ингредиенты без консервантов, срок хранения торта — 48 часов в холодильнике. Рекомендуем наслаждаться им в день праздника.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Контакты и Форма -->
+<section class="contact" id="contact">
+  <div class="container contact-wrap">
+    
+    <!-- Блок с вашими контактами -->
+    <div class="contact-info-box">
+      <h2>Свяжитесь с нами</h2>
+      <p>Вы можете написать или позвонить нам напрямую, либо заполнить форму заявки.</p>
+      <ul class="contact-list">
+        <li><span class="icon">📱</span> <a href="tel:+79782104895">+7 978 210-48-95</a></li>
+        <li><span class="icon">✉️</span> <a href="mailto:adad152@list.ru">adad152@list.ru</a></li>
+        <li><span class="icon">💬</span> <a href="https://t.me/world9912" target="_blank">Telegram: @world9912</a></li>
+        <li><span class="icon">📍</span> Доставка: Подольск, Москва</li>
+      </ul>
+    </div>
+
+    <!-- Форма -->
+    <form class="contact-form" id="leadForm" novalidate>
+      <h3>Оставить заявку</h3>
+      <div class="form-grid">
+        <div class="field"><label for="name">Ваше имя</label><input type="text" id="name" name="name" required placeholder="Анна"></div>
+        <div class="field"><label for="phone">Телефон / Telegram</label><input type="text" id="phone" name="phone" required placeholder="+7 999 123-45-67"></div>
+        <div class="field">
+          <label for="city">Куда нужна доставка?</label>
+          <select id="city" name="city">
+            <option value="Подольск">Подольск</option>
+            <option value="Москва">Москва</option>
+            <option value="Другой город МО">Другой город МО</option>
+            <option value="Самовывоз">Самовывоз (Подольск)</option>
+          </select>
+        </div>
+        <div class="field"><label for="message">Детали заказа</label><textarea id="message" name="message" placeholder="Дата, повод, желаемый вес и вкус"></textarea></div>
+      </div>
+      <button type="submit" class="btn btn-gold">Отправить заявку</button>
+      <div class="form-status" id="formStatus"></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© <span id="year"></span> pavlova.cake. Торты на заказ в Подольске и Москве.</p>
+    <p style="margin-top: 10px;">
+      <a href="tel:+79782104895">+7 978 210-48-95</a> · 
+      <a href="mailto:adad152@list.ru">adad152@list.ru</a> · 
+      <a href="https://t.me/world9912" target="_blank">@world9912</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const form = document.getElementById('leadForm');
+  const status = document.getElementById('formStatus');
+  
+  // Твой Telegram (заявки летят сюда)
+  const TG_USERNAME = 'world9912'; 
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = form.name.value.trim();
+    const phone = form.phone.value.trim();
+    const city = form.city.value;
+    const message = form.message.value.trim();
+
+    if (name.length < 2) { alert('Пожалуйста, укажите имя.'); return; }
+    if (phone.length < 5) { alert('Укажите телефон или Telegram.'); return; }
+
+    const text =
+      '🎂 Новая заявка на торт (pavlova.cake)\n\n' +
+      '👤 Имя: ' + name + '\n' +
+      '📞 Контакт: ' + phone + '\n' +
+      '📍 Город: ' + city + '\n' +
+      (message ? '💬 Детали: ' + message + '\n' : '');
+
+    const url = 'https://t.me/' + TG_USERNAME + '?text=' + encodeURIComponent(text);
+    window.open(url, '_blank');
+
+    status.className = 'form-status success';
+    status.textContent = 'Заявка сформирована! Отправьте её в открывшемся Telegram.';
+    form.reset();
+  });
+</script>
+</body>
+</html>
